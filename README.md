@@ -46,5 +46,22 @@ the underscores for letter in self.word_guessed.
 
  ## Milestone 5: Putting it all together
  
- This
- 
+ This milestone was comprised of two major tasks; implementing the game logic and implementing graphics. Turtle was used for graphics as it is a standard library and
+ was easy to implement. The game logic was comprised of a loop checking the total number of lives and how many letters were required for the word to be guessed, ending the game if either hits 0, as below:
+```python
+ game = Hangman(word_list, num_lives=5)
+    screen = turtle.getscreen()
+    pen = turtle.Turtle()
+    while game.num_lives > 0:
+        init_lives = game.num_lives
+        game.ask_letter()
+        if game.num_letters == 0:
+            print('Congratulations, you won!')
+            break
+        if game.num_lives != init_lives:
+            turtle_drawing(s = screen, t = pen, lives = game.num_lives)
+    if game.num_lives == 0:
+        print(f'You ran out of lives. The word was {game.word}')
+```
+
+Turtle is quite verbose, so a separate function contains all of the turtle code to maintain readability of this loop.
