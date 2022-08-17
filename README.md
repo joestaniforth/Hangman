@@ -27,7 +27,7 @@ initialiser. A list comprehension was used for self.word_guessed as it could han
 the print functions as opposed to .format as they are easier to read. f strings also have the incidental benefit of being faster, however, speed is unlikely to be an issue
 as the script is not very complex.
 
-## Milestone 4: complete the 'ask_letter' method
+## Milestone 4: Complete the 'ask_letter' method
 
 The bulk of this milestone was implementing the 'check_letter' method. This was checking whether the letter is present in the word, and substituting the underscores in
 self.word_gussed for the guessed letter if correct. The below code checks whether the letter is in the string, extracts the indicies of the letter(s) and then substitutes
@@ -42,6 +42,9 @@ the underscores for letter in self.word_guessed.
                 self.word_guessed = self.word_guessed[:pos]+[f'{letter}']+self.word_guessed[pos+1:]
  ```
  This used list slicing to only substitute at the necessary indices. Implementation of this required the .lower method to be implemented on the letter to make sure capitals
- and lower case letters wouldn't be treated differently. The most obvious place to insert this was directly after the input, as it require the fewest changes to the code.
+ and lower case letters wouldn't be treated differently. The most obvious place to insert this was directly after the input, as it require the fewest changes to the code. If the letter is not in the word, a life is subtracted. The 'check_letter' method was then added to the while loop in ask method, after all validations have passed.
+
+ ## Milestone 5: Putting it all together
  
+ This
  
