@@ -118,24 +118,20 @@ def play_game(word_list):
         print(f'You ran out of lives. The word was {game.word}')
 
 def turtle_drawing(s, t, lives: int) -> None:
+    turtle.delay(50)
     if lives == 4:
-        turtle.delay(50)
         t.forward(100)
         t.backward(50)
     elif lives == 3:
-        turtle.delay(50)
         t.left(90)
         t.forward(200)
     elif lives == 2:
-        turtle.delay(50)
         t.left(90)
         t.forward(50)
     elif lives == 1:
-        turtle.delay(50)
         t.left(90)
         t.forward(10)
     elif lives == 0:
-        turtle.delay(50)
         t.right(90)
         t.circle(25, 540)
         t.right(90)
