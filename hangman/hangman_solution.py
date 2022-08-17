@@ -4,7 +4,9 @@ The prints have to contain the same text as indicated, don't add any more prints
 or you will get 0 for this assignment.
 '''
 import random
-from turtle import position
+# from turtle import position
+# able to implement graphics but had to import more of turtle
+import turtle
 
 class Hangman:
     '''
@@ -100,17 +102,58 @@ class Hangman:
             valid_letter = True
 
         
-
-
 def play_game(word_list):
     game = Hangman(word_list, num_lives=5)
+    screen = turtle.getscreen()
+    pen = turtle.Turtle()
     while game.num_lives > 0:
+        init_lives = game.num_lives
         game.ask_letter()
         if game.num_letters == 0:
             print('Congratulations, you won!')
             break
+        if game.num_lives != init_lives:
+            turtle_drawing(s = screen, t = pen, lives = game.num_lives)
     if game.num_lives == 0:
         print(f'You ran out of lives. The word was {game.word}')
+
+def turtle_drawing(s, t, lives: int) -> None:
+    if lives == 4:
+        turtle.delay(50)
+        t.forward(100)
+        t.backward(50)
+    elif lives == 3:
+        turtle.delay(50)
+        t.left(90)
+        t.forward(200)
+    elif lives == 2:
+        turtle.delay(50)
+        t.left(90)
+        t.forward(50)
+    elif lives == 1:
+        turtle.delay(50)
+        t.left(90)
+        t.forward(10)
+    elif lives == 0:
+        turtle.delay(50)
+        t.right(90)
+        t.circle(25, 540)
+        t.right(90)
+        t.forward(70)
+        t.backward(60)
+        t.left(45)
+        t.forward(40)
+        t.backward(40)
+        t.right(90)
+        t.forward(40)
+        t.backward(40)
+        t.left(45)
+        t.forward(60)
+        t.left(45)
+        t.forward(40)
+        t.backward(40)
+        t.right(90)
+        t.forward(40)
 
 
 if __name__ == '__main__':
